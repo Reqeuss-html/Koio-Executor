@@ -1,0 +1,222 @@
+/* Don't Copy The Website Pls !! */
+/* © 2024 Koïo Executor | Reqeuss - Ablorient */
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koïo Executor</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Courier New", Courier, monospace;
+            background-color: #0a001e;
+            color: #00ff9f;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin: 20px 0;
+            animation: fadeIn 2s ease;
+        }
+
+        .highlight-koio {
+            color: #36d700;
+        }
+
+        .highlight-executor {
+            color: #c8ffb2;
+        }
+
+        .icon-container {
+            margin: 40px auto;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .icon {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(145deg, #222, #444);
+            box-shadow: 0 4px 8px rgba(0, 255, 159, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .icon:hover {
+            transform: scale(1.2);
+            box-shadow: 0 8px 16px rgba(0, 255, 159, 0.5);
+        }
+
+        .icon img {
+            width: 80%;
+        }
+
+        .executor-image {
+            margin: 30px auto;
+            max-width: 600px;
+            width: 90%;
+            border: 3px solid #00ff9f;
+            border-radius: 10px;
+            animation: slideIn 1.5s ease;
+        }
+
+        .instructions {
+            max-width: 800px;
+            margin: 30px auto;
+            text-align: left;
+            background: rgba(10, 0, 30, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #00ff9f;
+            box-shadow: 0 0 10px rgba(0, 255, 159, 0.2);
+            animation: fadeIn 2s ease;
+        }
+
+        .language-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .language-switcher button {
+            padding: 10px 20px;
+            background-color: #00ff9f;
+            color: #0a001e;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .language-switcher button:hover {
+            background-color: #36d700;
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        const translations = {
+            en: {
+                title: "<span class='highlight-koio'>Koïo</span> <span class='highlight-executor'>Executor</span>",
+                download: "Download",
+                discord: "Discord",
+                instructionsTitle: "How to Install Koïo Executor",
+                instructions: `
+                    <ol>
+                       <li>Click on the first icon on the web page.</li>
+                       <li>In the mega.nz link you download the executor.</li>
+                       <li>You disable your antivirus (Exception: You can leave Windows Defender).</li>
+                      <li>Join our Discord for scripts, updates and support.</li>
+                    </ol>
+                    <p>We wish you good cheat sessions on Roblox !</p>
+                `
+            },
+            ru: {
+                title: "<span class='highlight-koio'>Koïo</span> <span class='highlight-executor'>Executor</span>",
+                download: "Скачать",
+                discord: "Дискорд",
+                instructionsTitle: "Как установить Koïo Executor",
+                instructions: `
+                    <ol>
+                        <li>Нажмите на первый значок веб-страницы.</li>
+                        <li>По ссылке mega.nz скачиваете исполнитель</li>
+                        <li>Вы деактивируете антивирусы (исключение: вы можете выйти из Защитника Windows).</li>
+                        <li>Присоединяйтесь к нашему Discord для получения скриптов, обновлений и поддержки.</li>
+                    </ol>
+                    <p>Желаем вам хороших чит-сессий в Roblox !</p>
+                `
+            },
+            fr: {
+                title: "<span class='highlight-koio'>Koïo</span> <span class='highlight-executor'>Executor</span>",
+                download: "Télécharger",
+                discord: "Discord",
+                instructionsTitle: "Comment installer Koïo Executor",
+                instructions: `
+                    <ol>
+                        <li>Cliquer sur la première icon de la page web.</li>
+                        <li>Dans le lien mega.nz vous telechargez l'exécuteur</li>
+                        <li>Vous désactivez vos antivirus (Exception : Vous pouvez laisser Windows Defender).</li>
+                        <li>Rejoignez notre Discord pour des scripts, mises à jour et support.</li>
+                    </ol>
+                    <p>On vous souhaite des bonnes seances de cheat sur Roblox !</p>
+                `
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.getElementById('title').innerHTML = translations[lang].title;
+            document.getElementById('instructions-title').textContent = translations[lang].instructionsTitle;
+            document.getElementById('instructions').innerHTML = translations[lang].instructions;
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="title"><span class="highlight-koio">Koïo</span> <span class="highlight-executor">Executor</span></h1>
+
+    <div class="language-switcher">
+        <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('ru')">Русский</button>
+        <button onclick="changeLanguage('fr')">Français</button>
+    </div>
+
+    <div class="icon-container">
+        <div class="icon" onclick="window.location.href='https://mega.nz/file/OqwXUJxY#wdkA5U0o0i5nHcDsUl7CKq8qFVsCwlDlNlzE-TkRndE';">
+            <img src="https://cdn.discordapp.com/attachments/1310248943061303399/1310258816864096378/Abp772q.png?ex=6744911d&is=67433f9d&hm=c6211f536cf25365c2490b6b6f371123b524d13b8508fecea2975712536c1d63&" alt="Télécharger">
+        </div>
+
+        <!-- Icône pour Discord -->
+        <div class="icon" onclick="window.location.href='https://discord.com/invite/tonLienDiscord';">
+            <img src="https://cdn.discordapp.com/attachments/1310248943061303399/1310259027116298312/P2A5KLk.png?ex=6744914f&is=67433fcf&hm=4490c0b92553ae0cc9622838947da27ef8be4ffdf2164363ac273793e6e412fb&" alt="Discord">
+        </div>
+    </div>
+
+    <img class="executor-image" src="https://cdn.discordapp.com/attachments/1310248943061303399/1310269980767420416/ZwdCciK.png?ex=67449b83&is=67434a03&hm=08ab525a9c0c0be339c9cf56a48dd72a64d4c786c5258f2c1b1aed7cbd77cf62&" alt="Aperçu de l'Executor">
+
+    <div class="instructions">
+        <h2 id="instructions-title">How to Install Koïo Executor</h2>
+        <div id="instructions">
+            <ol>
+                <li>Click on the first icon on the web page.</li>
+                <li>In the mega.nz link you download the executor.</li>
+                <li>You disable your antivirus (Exception: You can leave Windows Defender).</li>
+                <li>Join our Discord for scripts, updates and support.</li>
+            </ol>
+            <p>We wish you good cheat sessions on Roblox!</p>
+        </div>
+    </div>
+    <p>© 2024 Koïo Executor | Reqeuss - Ablorient</p>
+</body>
+
+</html>
